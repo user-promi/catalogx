@@ -210,7 +210,7 @@ const FromViewer = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newErrors = {};
+        const error = {};
 
         formList.forEach(field => {
             if (!field.required || field.disabled) return;
@@ -226,34 +226,34 @@ const FromViewer = (props) => {
                 case 'datepicker':
                 case 'timepicker':
                     if (!value || value.trim() === '') {
-                        newErrors[field.name] = `${field.label} is required.`;
+                        error[field.name] = `${field.label} is required.`;
                     }
                     break;
 
                 case 'checkboxes':
                 case 'multiselect':
                     if (!Array.isArray(value) || value.length === 0) {
-                        newErrors[field.name] = `${field.label} is required.`;
+                        error[field.name] = `${field.label} is required.`;
                     }
                     break;
 
                 case 'dropdown':
                 case 'radio':
                     if (!value) {
-                        newErrors[field.name] = `${field.label} is required.`;
+                        error[field.name] = `${field.label} is required.`;
                     }
                     break;
 
                 case 'attachment':
                     if (!value) {
-                        newErrors[field.name] = `${field.label} is required.`;
+                        error[field.name] = `${field.label} is required.`;
                     }
                     break;
             }
         });
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
+        if (Object.keys(error).length > 0) {
+            setErrors(error);
             return;
         }
 
