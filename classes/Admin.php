@@ -207,6 +207,7 @@ class Admin {
         }
 
         $brands = get_terms('product_brand', [ 'hide_empty' => false ]);
+        $all_product_brand = [];
         if ($brands) {
             foreach ($brands as $brand) {
                 $all_product_brand[] = [
