@@ -98,6 +98,20 @@ class Util {
         if ( in_array( $product_id, $exclude_tags ) ) {
             return false;
         }
+
+        // Get brand exclusion settings
+        $brand_exclusion_settings = isset($quote_exclusion_setting['quote_exclusion_brand_list']) ? $quote_exclusion_setting['quote_exclusion_brand_list'] : [];
+        
+        // Get excluded brand
+        $exclude_brands = array_filter(array_map( function( $tag ) use ($product_id) {
+            $brand_term_list = wp_get_post_terms($product_id,'product_brand',['fields'=>'ids']);
+            return $tag[ 'key' ] == (!empty($brand_term_list) && $brand_term_list[0]) ? $product_id : null;
+        }, $brand_exclusion_settings ));
+
+        // Check current product id is in exclude brands
+        if ( in_array( $product_id, $exclude_brands ) ) {
+            return false;
+        }
         return true;
     }
 
