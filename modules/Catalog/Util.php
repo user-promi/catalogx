@@ -103,11 +103,10 @@ class Util {
 
         // Get brand exclusion settings
         $brand_exclusion_settings = isset($catalog_exclusion_setting['catalog_exclusion_brand_list']) ? $catalog_exclusion_setting['catalog_exclusion_brand_list'] : [];
-        
         // Get excluded brand
         $exclude_brands = array_filter(array_map( function( $tag ) use ($product_id) {
             $brand_term_list = wp_get_post_terms($product_id,'product_brand',['fields'=>'ids']);
-            return $tag[ 'key' ] == (!empty($brand_term_list) && $brand_term_list[0]) ? $product_id : null;
+            return (!empty($brand_term_list) && in_array($tag['key'], $brand_term_list)) ? $product_id : null;
         }, $brand_exclusion_settings ));
 
         // Check current product id is in exclude brands
