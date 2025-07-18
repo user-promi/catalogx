@@ -173,13 +173,13 @@ class Install {
             'is_enable_multiple_product_enquiry'    => ['is_enable_multiple_product_enquiry'],
         ];
 
-        update_option( 'catalogx_all-settings_settings', $all_settings );
+        update_option( 'catalogx_all_settings_settings', $all_settings );
         
         $email_settings = [
             'additional_alert_email'  => CatalogX()->admin_email,
         ];
 
-        update_option( 'catalogx_enquiry-email-temp_settings', $email_settings );
+        update_option( 'catalogx_enquiry_email_temp_settings', $email_settings );
 
         // Update pages settings
         $page_settings = [
@@ -244,7 +244,7 @@ class Install {
             'freefromsetting' => $free_form,          
         ];
 
-        update_option( 'catalogx_enquiry-form-customization_settings', $form_settings );
+        update_option( 'catalogx_enquiry_form_customization_settings', $form_settings );
 
         $wholesale_form = [ 
             [
@@ -279,7 +279,7 @@ class Install {
             ],         
         ];
 
-        update_option( 'catalogx_wholesale-registration_settings', $wholesale_from_settings );
+        update_option( 'catalogx_wholesale_registration_settings', $wholesale_from_settings );
     }
 
     // this function is for default migration run
@@ -287,10 +287,18 @@ class Install {
         // Migration by specific version controll                       
         if ( version_compare( self::$previous_version, '6.0.7', '<' ) ) {
             global $wpdb;
-            $wpdb->query(
-                "ALTER TABLE `{$wpdb->prefix}" . Utill::TABLES[ 'rule' ] . "`
-                ADD COLUMN brand_id bigint(20);"
-            );
+            $column_exists = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SHOW COLUMNS FROM `{$wpdb->prefix}" . Utill::TABLES[ 'rule' ] . "` LIKE %s",
+                    'brand_id'
+                )
+            ); 
+            if (empty($column_exists)) {
+                $wpdb->query(
+                    "ALTER TABLE `{$wpdb->prefix}" . Utill::TABLES[ 'rule' ] . "`
+                    ADD COLUMN brand_id bigint(20);"
+                );
+            }
 
             $previous_enquiry_catalog_customization_settings = get_option( 'catalogx_enquiry-catalog-customization_settings', [] );
             update_option( 'catalogx_enquiry_catalog_customization_settings', $previous_enquiry_catalog_customization_settings );
@@ -310,6 +318,13 @@ class Install {
             $previous_wholesale_registration_settings = get_option( 'catalogx_wholesale-registration_settings', [] );
             update_option( 'catalogx_wholesale_registration_settings', $previous_wholesale_registration_settings );
 
+
+            delete_option('catalogx_enquiry-catalog-customization_settings');
+            delete_option('catalogx_all-settings_settings');
+            delete_option('catalogx_enquiry-quote-exclusion_settings');
+            delete_option('catalogx_enquiry-form-customization_settings');
+            delete_option('catalogx_enquiry-email-temp_settings');
+            delete_option('catalogx_wholesale-registration_settings');
         }
     }
 
