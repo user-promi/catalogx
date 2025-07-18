@@ -291,6 +291,25 @@ class Install {
                 "ALTER TABLE `{$wpdb->prefix}" . Utill::TABLES[ 'rule' ] . "`
                 ADD COLUMN brand_id bigint(20);"
             );
+
+            $previous_enquiry_catalog_customization_settings = get_option( 'catalogx_enquiry-catalog-customization_settings', [] );
+            update_option( 'catalogx_enquiry_catalog_customization_settings', $previous_enquiry_catalog_customization_settings );
+            
+            $previous_all_settings_settings = get_option( 'catalogx_all-settings_settings', [] );
+            update_option( 'catalogx_all_settings_settings', $previous_all_settings_settings );
+
+            $previous_enquiry_quote_exclusion_settings = get_option( 'catalogx_enquiry-quote-exclusion_settings', [] );
+            update_option( 'catalogx_enquiry_quote_exclusion_settings', $previous_enquiry_quote_exclusion_settings );
+
+            $previous_enquiry_form_customization_settings = get_option( 'catalogx_enquiry-form-customization_settings', [] );
+            update_option( 'catalogx_enquiry_form_customization_settings', $previous_enquiry_form_customization_settings );
+            
+            $previous_enquiry_email_temp_settings = get_option( 'catalogx_enquiry-email-temp_settings', [] );
+            update_option( 'catalogx_enquiry_email_temp_settings', $previous_enquiry_email_temp_settings );
+
+            $previous_wholesale_registration_settings = get_option( 'catalogx_wholesale-registration_settings', [] );
+            update_option( 'catalogx_wholesale_registration_settings', $previous_wholesale_registration_settings );
+
         }
     }
 

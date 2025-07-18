@@ -229,7 +229,7 @@ class Admin {
         $settings_value = [];
         $tabs_names     = [ 'enquiry-catalog-customization', 'all-settings', 'enquiry-form-customization', 'enquiry-quote-exclusion', 'tools', 'enquiry-email-temp', 'wholesale', 'wholesale-registration', 'pages' ];
         foreach ( $tabs_names as $tab_name ) {
-            $settings_value[ $tab_name ] = CatalogX()->setting->get_option( 'catalogx_' . $tab_name . '_settings' );
+            $settings_value[ $tab_name ] = CatalogX()->setting->get_option(  str_replace( '-', '_', 'catalogx_' . $tab_name . '_settings' ) );
         }
 
         if ($current_user_role === 'administrator') {
