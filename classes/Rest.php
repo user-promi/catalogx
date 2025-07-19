@@ -95,10 +95,9 @@ class Rest {
         $all_details        = [];
         $get_settings_data  = $request->get_param( 'setting' );
         $settingsname       = $request->get_param( 'settingName' );
-        $optionname         = 'catalogx_' . $settingsname . '_settings';
-
+        $settingsname       = str_replace( '-', '_', 'catalogx_' . $settingsname . '_settings' );
         // save the settings in database
-        CatalogX()->setting->update_option( $optionname, $get_settings_data );
+        CatalogX()->setting->update_option( $settingsname, $get_settings_data );
 
         do_action( 'catalogx_settings_after_save', $settingsname, $get_settings_data );
 
