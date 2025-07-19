@@ -62,7 +62,7 @@ final class CatalogX {
     }
 
     public function migrate_from_previous() {
-        if ( version_compare( get_option( 'catalogx_plugin_version' ), '6.0.0', '<' ) || version_compare( get_option( 'catalogx_plugin_version' ), '6.0.7', '<' ) ) {
+        if ( version_compare( get_option( 'catalogx_plugin_version' ), '6.0.7', '<' ) ) {
             new Install();
         }
     }
