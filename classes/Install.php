@@ -45,12 +45,12 @@ class Install {
         $this->set_default_modules();
         $this->set_default_settings();
 
-        $this->run_default_migration();
-
         // this function should be deleted after 7.0.0
         if (!empty(get_option('mvx_catalog_general_tab_settings'))) {
             $this->migrate_catalog_enquiry_to_catalogx();
         }
+
+        $this->run_default_migration();
 
         // Update the version in database
         update_option( self::VERSION_KEY, self::$current_version );
