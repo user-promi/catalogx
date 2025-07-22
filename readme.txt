@@ -12,8 +12,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WooCommerce Catalog Mode, product enquiry, and request a quote plugin. Hide prices, disable cart, and collect enquiries easily.
 == Description ==
 = WOOCOMMERCE CATALOG MODE PLUGIN FOR WORDPRESS – WITH PRODUCT ENQUIRY & REQUEST A QUOTE =
-
 Easily switch your WooCommerce store to **catalog mode** and enable a smooth **product enquiry** and **quote request** experience - no coding needed.
+
+**CatalogX** is the all-in-one solution for turning your WooCommerce store into a product catalog with powerful enquiry and quotation features. Perfect for B2B, wholesale, or catalog-only stores, CatalogX lets you hide prices, remove the “Add to Cart” button, and add customizable enquiry and request-a-quote buttons anywhere on your site.
+
+Built to simplify product display and streamline customer interaction, CatalogX supports role-based catalog settings, variable product enquiries, and vendor-specific quote handling. Whether you need a private store, a product showcase, or a lead-generation-driven WooCommerce catalog, CatalogX does it all.
+
 🥇 Most advanced WooCommerce catalog mode, wholesale, and request quote plugin.
 🎁 Feature-packed solution to create powerful **B2B, B2C,** and hybrid ecommerce stores.
 📞 **Dedicated support** team with **95%** customer satisfaction
