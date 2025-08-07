@@ -1,24 +1,31 @@
-<?php 
+<?php
+/**
+ * CatalogX module Module class file
+ *
+ * @package CatalogX
+ */
 
 namespace CatalogX\Catalog;
 
 /**
  * CatalogX Catalog Module class
  *
- * @class 		Module class
- * @version		6.0.0
- * @author 		MultivendorX
+ * @class       Module class
+ * @version     6.0.0
+ * @author      MultiVendorX
  */
-class Module{
+class Module {
     /**
      * Container contain all helper class
+     *
      * @var array
      */
-    private $container = [];
+    private $container = array();
 
     /**
      * Contain reference of the class
-     * @var 
+     *
+     * @var Module|null
      */
     private static $instance = null;
 
@@ -26,34 +33,35 @@ class Module{
      * Catalog class constructor function
      */
     public function __construct() {
-        // Init helper classes
+        // Init helper classes.
         $this->init_classes();
 
         do_action( 'load_premium_catalog_module' );
-
     }
 
     /**
      * Init helper classes
+     *
      * @return void
      */
     public function init_classes() {
-        $this->container[ 'util' ]      = new Util();
-        $this->container[ 'fontend' ]   = new Frontend();
-        $this->container[ 'admin' ]     = new Admin();
+        $this->container['util']    = new Util();
+        $this->container['fontend'] = new Frontend();
+        $this->container['admin']   = new Admin();
     }
 
     /**
      * Magic getter function to get the reference of class.
-     * Accept class name, If valid return reference, else Wp_Error. 
-     * @param   mixed $class
+     * Accept class name, If valid return reference, else Wp_Error.
+     *
+     * @param   mixed $class Name of the class to retrieve from the container.
      * @return  object | \WP_Error
      */
-    public function __get( $class ) {
+    public function __get( $class ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.classFound
         if ( array_key_exists( $class, $this->container ) ) {
             return $this->container[ $class ];
         }
-        return new \WP_Error( sprintf('Call to unknown class %s.', $class ) );
+        return new \WP_Error( sprintf( 'Call to unknown class %s.', $class ) );
     }
 
     /**
@@ -63,7 +71,7 @@ class Module{
      * @param string $class The class name or key to store the instance.
      * @param object $value The instance of the class to store.
      */
-    public function __set( $class, $value ) {
+    public function __set( $class, $value ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.classFound
         $this->container[ $class ] = $value;
     }
 
@@ -71,11 +79,11 @@ class Module{
      * Initializes Catalog class.
      * Checks for an existing instance
      * And if it doesn't find one, create it.
-     * @param mixed $file
+     *
      * @return object | null
      */
     public static function init() {
-        if ( self::$instance === null ) {
+        if ( null === self::$instance ) {
             self::$instance = new self();
         }
 
