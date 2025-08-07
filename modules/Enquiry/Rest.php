@@ -150,7 +150,7 @@ class Rest {
 
             $msg = __( 'Enquiry sent successfully', 'catalogx' );
 
-            do_action( 'catalogx_clear_enquiry_cart' );
+            do_action( 'catalogx_clear_enquiry' );
 
             return rest_ensure_response(
                 array(

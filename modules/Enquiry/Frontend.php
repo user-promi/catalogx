@@ -74,7 +74,7 @@ class Frontend {
             return;
         }
 
-        if ( apply_filters( 'catalogx_is_allowed_multiple_product_enquiry', false ) ) {
+        if ( apply_filters( 'catalogx_enable_multiple_product_enquiry', false ) ) {
             return;
         }
 
@@ -254,7 +254,7 @@ class Frontend {
             }
         }
 
-        if ( apply_filters( 'catalogx_is_allowed_multiple_product_enquiry', false ) ) {
+        if ( apply_filters( 'catalogx_enable_multiple_product_enquiry', false ) ) {
             return;
         }
 
