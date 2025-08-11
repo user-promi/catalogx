@@ -161,8 +161,9 @@ class Frontend {
         FrontendScripts::localize_scripts( 'catalogx-enquiry-frontend-script' );
         FrontendScripts::localize_scripts( 'catalogx-enquiry-form-script' );
 
-        if ( is_product() ) {
+        if ( is_product() || CatalogX()->render_enquiry_btn_via = 'shortcode' ) {
             FrontendScripts::enqueue_style( 'catalogx-enquiry-form-style' );
+            FrontendScripts::enqueue_style( 'catalogx-frontend-style' );
             FrontendScripts::enqueue_script( 'catalogx-enquiry-frontend-script' );
             FrontendScripts::enqueue_script( 'catalogx-enquiry-form-script' );
 

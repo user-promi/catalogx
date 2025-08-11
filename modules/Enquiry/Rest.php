@@ -44,6 +44,15 @@ class Rest {
     /**
      * Save enquiry form data
      *
+     * quantity string required
+     * Retrieve the quantity of product
+     * productId string required
+     * Retrieve the product id of enquiry
+     * bodyparams array required
+     * Retrieve the all body parameter from request
+     * fileparams array required
+     * Retrieve the all file parameter from request
+     *
      * @param \WP_REST_Request $request The REST request object.
      * @return \WP_Error|\WP_REST_Response
      */
