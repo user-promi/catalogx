@@ -1,4 +1,4 @@
-=== CatalogX - Product Catalog Mode & Product Enquiry, Request Quote for WooCommerce, Wholesale Prices, B2B, Wholesale User Roles, Dynamic Pricing, Tired Pricing & More ===
+=== CatalogX - Catalog Mode & Product Enquiry, Request Quote for WooCommerce, Wholesale Prices, B2B, Wholesale User Roles, Dynamic Pricing, Tired Pricing & More ===
 Contributors: wcmp
 Tags: product catalog mode , product enquiry for woocommerce, request a quote, b2b ,  wholesale pricing
 Donate link: https://multivendorx.com/donate
