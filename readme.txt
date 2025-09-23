@@ -1,4 +1,4 @@
-=== CatalogX — Catalog Mode, Enquiry & Quotes for WooCommerce ===
+=== CatalogX - Catalog Mode, Enquiry & Quotes for WooCommerce ===
 Contributors: wcmp
 Tags: product catalog mode , product enquiry for woocommerce, request a quote, b2b ,  wholesale pricing
 Donate link: https://multivendorx.com/donate
