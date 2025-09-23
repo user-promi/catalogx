@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CatalogX - Product Catalog Mode For WooCommerce
+ * Plugin Name: CatalogX — Catalog Mode, Enquiry & Quotes for WooCommerce
  * Plugin URI: https://catalogx.com/
  * Description: Convert your WooCommerce store into a catalog website in a click
  * Author: MultiVendorX
