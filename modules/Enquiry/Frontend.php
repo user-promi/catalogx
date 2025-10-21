@@ -196,6 +196,13 @@ class Frontend{
      */
     public function catalogx_enquiry_button_shortcode($attr) {
         global $product;
+        if(is_admin()) {
+            $screen = get_current_screen();
+            if ($screen && $screen->is_block_editor()) {
+                return;
+            }
+        }
+
         if (empty(trim(CatalogX()->render_enquiry_btn_via))) {
             CatalogX()->render_enquiry_btn_via = 'shortcode';
             ob_start();
